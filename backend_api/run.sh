@@ -41,6 +41,6 @@ export PYTHONPATH=$(pwd)/src:$PYTHONPATH
 # Move to API source directory explicitly
 cd src/api || exit 1
 
-echo "Launching uvicorn with: uvicorn main:app --host 0.0.0.0 --port 3001 --log-level debug"
-# Add verbose uvicorn logging, ensure correct module path, and fail fast on errors
-exec uvicorn main:app --host 0.0.0.0 --port 3001 --log-level debug
+echo "Launching uvicorn with: python -m uvicorn main:app --host 0.0.0.0 --port 3001 --log-level debug"
+# Use the venv's Python to ensure the local environment dependencies are used (avoids 'ModuleNotFoundError')
+exec python -m uvicorn main:app --host 0.0.0.0 --port 3001 --log-level debug
