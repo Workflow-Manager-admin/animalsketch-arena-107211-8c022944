@@ -146,6 +146,11 @@ app.add_middleware(
 
 # --- ROUTES ---
 
+if __name__ == "__main__":
+    import uvicorn
+    # Launch the FastAPI app on port 3001 for development/local use
+    uvicorn.run("main:app", host="0.0.0.0", port=3001, reload=True)
+
 
 @app.get("/", tags=["root"])
 def health_check():
