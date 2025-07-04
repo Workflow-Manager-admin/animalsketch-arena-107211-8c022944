@@ -35,8 +35,8 @@ echo "CWD: $(pwd)"
 echo "Tree under backend_api:"
 ls -lahR .
 
-# Set PYTHONPATH so uvicorn finds the package correctly
-export PYTHONPATH=$(pwd)/src/api:$PYTHONPATH
+# Set PYTHONPATH so uvicorn finds the package correctly (Should be the 'src' root, not 'src/api')
+export PYTHONPATH=$(pwd)/src:$PYTHONPATH
 
 # Move to API source directory explicitly
 cd src/api || exit 1
