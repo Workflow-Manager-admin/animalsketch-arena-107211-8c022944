@@ -146,10 +146,14 @@ app.add_middleware(
 
 # --- ROUTES ---
 
-if __name__ == "__main__":
-    import uvicorn
-    # Launch the FastAPI app on port 3001 for development/local use
-    uvicorn.run("main:app", host="0.0.0.0", port=3001, reload=True)
+# Only include __main__ block for manual invocation, not container-based
+# (uvicorn should be launched via run.sh, and app import path must match)
+# The __main__ block is commented out to avoid accidental double server launches or confusion
+
+# if __name__ == "__main__":
+#     import uvicorn
+#     # Launch the FastAPI app on port 3001 for development/local use
+#     uvicorn.run("main:app", host="0.0.0.0", port=3001, reload=True)
 
 
 @app.get("/", tags=["root"])
